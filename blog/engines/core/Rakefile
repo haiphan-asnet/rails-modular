@@ -1,0 +1,25 @@
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
+
+require 'rdoc/task'
+
+RDoc::Task.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'Core'
+  rdoc.options << '--line-numbers'
+  rdoc.rdoc_files.include('README.rdoc')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+load 'rails/tasks/statistics.rake'
+
+# Load rake tasks from bower_rails
+require 'bower-rails'
+spec = Gem::Specification.find_by_name 'bower-rails'
+load "#{spec.gem_dir}/lib/tasks/bower.rake"
+
+Bundler::GemHelper.install_tasks
+

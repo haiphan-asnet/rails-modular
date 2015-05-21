@@ -15,6 +15,15 @@ module Blog
         # Minimum Sass number precision required by bootstrap-sass
         ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
       end
+
+      initializer :append_migrations do |app|
+        unless app.root.to_s.match(root.to_s)
+          config.paths["db/migrate"].expanded.each do |p|
+            app.config.paths["db/migrate"] << p
+          end
+        end
+      end
+      
     end
   end
 end

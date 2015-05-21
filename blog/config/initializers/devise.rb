@@ -258,5 +258,5 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   config.router_name = :blog
-  config.parent_controller = 'Blog::ApplicationController
+  config.parent_controller = 'Blog::ApplicationController'
 end

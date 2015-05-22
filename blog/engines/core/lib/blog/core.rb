@@ -1,3 +1,4 @@
+require 'sass-rails'
 require 'bower-rails'
 require 'devise'
 

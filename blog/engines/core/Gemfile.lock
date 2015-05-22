@@ -136,6 +136,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     sprockets (3.1.0)
       rack (~> 1.0)
     sprockets-rails (2.3.1)
@@ -159,3 +161,4 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   rspec-rails (~> 3.0)
+  shoulda-matchers

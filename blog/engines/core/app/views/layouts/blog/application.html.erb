@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>Core</title>
-  <%= stylesheet_link_tag    "core/application", media: "all" %>
-  <%= javascript_include_tag "core/application" %>
+  <%= stylesheet_link_tag    "blog/application", media: "all" %>
+  <%= javascript_include_tag "blog/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+           <%= link_to 'Blog', blog.root_path, class: 'navbar-brand' %>
+       </div>
+       <%- if current_user %>
+     <div class="navbar-collapse collapse" id="navbar">
+       <ul class="nav navbar-nav">
+        <li class="<%= active(blog.root_path) %>">
+         <%= link_to 'Home', blog.root_path %>
+       </li>
+       <li class="<%= active(blog.edit_user_registration_path) %>">
+         <%= link_to 'My Account', blog.edit_user_registration_path %>
+       </li>
+       <li>
+         <%= link_to 'Logout', blog.destroy_user_session_path, method: :delete %>
+      </li>
+      </ul>
+         </div>
+       <% end %>
+     </div>
+  </nav>
+  <div class='container' role='main'>
+     <div class='jumbotron'>
+       <%= yield %>
+     </div>
+   </div>
 </body>
 </html>

@@ -10,12 +10,10 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use a debugger
-group :development, :test do
+group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', require: false
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'database_cleaner'
 end
-

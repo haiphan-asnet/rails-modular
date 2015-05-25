@@ -43,4 +43,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'modular_engine'
 gem 'blog_core', path: 'engines/core'
